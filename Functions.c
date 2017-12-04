@@ -220,11 +220,10 @@ void read_temperature_conversion(unsigned char *LS_Byte_ptr,unsigned char *MS_By
     unsigned char LS_Byte=*LS_Byte_ptr;
     unsigned char MS_Byte=*MS_Byte_ptr;
 
-       PORTBbits.RB3 = 0; //Turn off strong pullup
-        //Read Dallas 1822P
-        ow_reset(); //reset device
-        ow_write_byte(0xCC); //skip ROM check
-        ow_write_byte(0xBE); //Send read scratchpad on 1822P
+       PORTBbits.RB3 = 0; 
+        ow_reset();
+        ow_write_byte(0xCC); 
+        ow_write_byte(0xBE); 
         LS_Byte = ow_read_byte(); 
         MS_Byte = ow_read_byte();
         
